@@ -1,0 +1,16 @@
+# 排除特定的大文件，但保留源代码
+FAST_LIO/PCD/
+*.gif
+*.mp4
+*.avi
+*.mov
+# 排除特定的大数据文件
+FAST_LIO/msg/rev2robotics.pcd
+# 但保留这个文件
+!FAST_LIO/msg/rev2robotic_resize.pcd
+# 构建目录
+build/
+devel/
+# 临时文件
+*.log
+*.tmp

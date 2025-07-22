@@ -1,0 +1,5 @@
+*.gif
+*.mp4
+*.bag
+FAST_LIO/PCD/
+FAST_LIO/msg/rev2robotics.pcd

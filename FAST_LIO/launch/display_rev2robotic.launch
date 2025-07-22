@@ -1,0 +1,33 @@
+<launch>
+
+    <node pkg="tf2_ros" type="static_transform_publisher" name="map_to_base_link" 
+          args="0 0 0 0 0 0 map base_link" />
+
+    <node name="pcd_publisher" pkg="pcl_ros" type="pcd_to_pointcloud" 
+          args="$(find fast_lio)/msg/rev2robotic_resize.pcd 0.1" 
+          output="screen">
+        <param name="frame_id" value="map" />
+    </node>
+    
+
+    <node name="rviz" pkg="rviz" type="rviz" 
+          args="-d $(find fast_lio)/rviz/pcd_display.rviz" 
+          output="screen" />
+</launch>
+
+
+<!-- cd ~/G1_slam/workspace/ws_loc2
+T1
+source ~/ws_livox/devel/setup.bash
+source ~/G1_slam/workspace/ws_loc2/devel/setup.bash
+roslaunch fast_lio display_rev2robotic.launch
+T2
+source ~/ws_livox/devel/setup.bash
+source ~/G1_slam/workspace/ws_loc2/devel/setup.bash
+roslaunch open3d_loc localization_3d_g1.launch
+T3
+source ~/ws_livox/devel/setup.bash
+source ~/G1_slam/workspace/ws_loc2/devel/setup.bash
+roslaunch livox_ros_driver2 msg_MID360.launch -->
+
+
